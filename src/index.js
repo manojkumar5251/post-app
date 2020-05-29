@@ -4,6 +4,9 @@ import "./index.css"
 import App from "./App"
 import * as serviceWorker from "./serviceWorker"
 import "bootstrap/dist/css/bootstrap.min.css"
+import Axios from "axios"
+
+Axios.defaults.baseURL = "https://post-app-43b06.firebaseio.com"
 
 ReactDOM.render(
   <React.StrictMode>
