@@ -89,7 +89,7 @@ export default class App extends React.PureComponent {
 
   render() {
     return (
-      <div className="container d-flex flex-column w-50 mt-3 p-5 rounded">
+      <div className="container d-flex flex-column w-50 my-3 p-5 rounded">
         <input
           value={this.state.author}
           onChange={e => this.setState({ author: e.target.value })}
