@@ -61,6 +61,32 @@ export default class App extends React.PureComponent {
       })
   }
 
+  upClick = index => {
+    let comments = { ...this.state.comments }
+    index = Object.keys(comments)[index]
+    console.log(index)
+    comments[index].up = comments[index].up + 1
+    this.setState({ comments })
+    Axios.patch("/comments.json", { [index]: comments[index] })
+      .then(res => {})
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  downClick = index => {
+    let comments = { ...this.state.comments }
+    index = Object.keys(comments)[index]
+    console.log(index)
+    comments[index].down = comments[index].down + 1
+    this.setState({ comments })
+    Axios.patch("/comments.json", { [index]: comments[index] })
+      .then(res => {})
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
   render() {
     return (
       <div className="container d-flex flex-column w-50 mt-3 p-5 rounded">
@@ -100,6 +126,8 @@ export default class App extends React.PureComponent {
                 comment={comments.comment}
                 up={comments.up}
                 down={comments.down}
+                upClick={() => this.upClick(i)}
+                downClick={() => this.downClick(i)}
               />
             )
           })}
